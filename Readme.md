@@ -6,7 +6,7 @@ O objetivo é desenvolver um sistema de conta bancária para pessoa física, uti
 
 Nesta primeira versão será contemplado:
 
-<li> li Cadastro de clientes; </li>
+<li> Cadastro de clientes; </li>
 <li> Depósitos; </li>
 <li> Saques; e </li>
 <li> Consulta de saldo. </li>
