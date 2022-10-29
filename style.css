@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    vertical-align: baseline;
+    list-style: none;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-gray);
+  }
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.header{
+    display: flex;
+    height: 70px;
+    padding: 10px;
+    gap: 10px;
+    background-color: rgb(245, 234, 136);
+}
+
+header h2{
+    display: flex;
+    align-items: center;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 40px;
+    background-color: rgb(252, 241, 195);
+}
+
+.iconesSociais{
+    display: flex;
+    gap: 10px;
+}
+
+.iconesSociais a:hover{
+    opacity: 0.7;
+}
+
+.footerEmpresa{
+    display: flex;
+    justify-content: center;
+}
