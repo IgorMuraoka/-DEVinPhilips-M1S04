@@ -33,5 +33,11 @@ function armazenaDados(evento){
     }
 }
 
-const form = document.getElementById('form');
-form.addEventListener('submit', armazenaDados);
+const checkSaldo = document.getElementById('saldo');
+checkSaldo.addEventListener('click', () => document.getElementById("acaoValor").disabled = true)
+
+const checkSaque = document.getElementById('saque')
+checkSaque.addEventListener('click', () => document.getElementById("acaoValor").disabled = false)
+
+const checkDeposito = document.getElementById('deposito')
+checkDeposito.addEventListener('click', () => document.getElementById("acaoValor").disabled = false)

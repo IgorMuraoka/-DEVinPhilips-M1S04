@@ -17,8 +17,7 @@
     <main>
         <section id="formulario">
             <h2>Cadastrar nova conta</h2>
-
-            <form id="form" class="form">
+            <form id="form">
 
                 <div>
                     <label for="name">Nome:</label>
@@ -47,6 +46,43 @@
                 <input type="reset" value="Limpar">     
                 <input type="submit" value="Cadastrar">
             </form>
+        </section>
+        
+        <section id="operacao">
+            <h2>Ações</h2>
+
+            <form id="formAcoes">
+                
+                <div id="acao" class="acao">
+                    <label for="saque">Saque</label>
+                    <input type="radio" name="acao" id="saque" value="saque">
+
+                    <label for="deposito">Depósito</label>
+                    <input type="radio" name="acao" id="deposito" value="deposito">
+
+                    <label for="saldo">Consulta de Saldo</label>
+                    <input type="radio" name="acao" id="saldo" value="saldo">
+                </div>
+
+                <div>
+                    <label for="valor">Valor:</label>
+                    <input type="number" name="valor" id="acaoValor">
+                </div>
+
+                <div>
+                    <label for="acaoConta">Conta: </label>
+                    <input type="number" name="acaoConta" id="acaoConta">
+                </div>
+
+                <div>
+                    <label for="acaoPassword">Senha:</label>
+                    <input type="text" name="acaoPassword" id="acaoPassword">
+                </div>
+
+                <input type="reset" value="Limpar">     
+                <input type="submit" value="Confirmar">
+            </form>
+
         </section>
     </main>
 
