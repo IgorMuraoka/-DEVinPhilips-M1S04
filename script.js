@@ -1,11 +1,6 @@
 let contasClientes = [];
 
 function validaSenha(evento){
-    // const senha1 = evento.document.getElementById('password').value;
-    // const senha2 = evento.document.getElementById('confirm').value;
-
-    // return senha1 === senha2?  true : false;
-
     if(evento.target.password.value === evento.target.confirm.value){
         return true
     } else{
@@ -33,6 +28,9 @@ function armazenaDados(evento){
     }
 }
 
+const form = document.getElementById('form');
+form.addEventListener('submit', armazenaDados);
+
 const checkSaldo = document.getElementById('saldo');
 checkSaldo.addEventListener('click', () => document.getElementById("acaoValor").disabled = true)
 
@@ -41,3 +39,55 @@ checkSaque.addEventListener('click', () => document.getElementById("acaoValor").
 
 const checkDeposito = document.getElementById('deposito')
 checkDeposito.addEventListener('click', () => document.getElementById("acaoValor").disabled = false)
+
+function saque (){
+console.log('teste saque');
+}
+
+function deposito (){
+console.log('teste deposito');
+
+}
+
+function saldo (){
+console.log('teste saldo');
+}
+
+
+function efetuarOperacao (ev){
+    ev.preventDefault();
+    
+    const acao = {
+        tipo: ev.target.acao.value,
+        valor: Number(ev.target.acaoValor.value),
+        conta: Number(ev.target.acaoConta.value),
+        senha: ev.target.acaoPassword.value
+    }
+    
+    for(i=0; i<contasClientes.length; i++ ){
+        if(contasClientes[i].conta == acao.conta && contasClientes[i].senha == acao.senha){
+            switch (acao.tipo){
+                case 'saque':
+                    saque();
+                    break;
+                case 'deposito':
+                    deposito();
+                    break;
+                case 'saldo':
+                    saldo();
+                    break;
+                default:
+                    alert('Operação inválida!');
+            }
+        } else if(contasClientes[i].conta == acao.conta && contasClientes[i].senha != acao.senha){
+            alert("Senha incorreta");
+        } else{
+            alert("Conta não existe")
+        }
+    }
+
+}
+
+
+const formAcoes = document.getElementById('formAcoes');
+formAcoes.addEventListener('submit', efetuarOperacao)
