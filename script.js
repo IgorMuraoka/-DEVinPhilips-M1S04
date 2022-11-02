@@ -40,19 +40,26 @@ checkSaque.addEventListener('click', () => document.getElementById("acaoValor").
 const checkDeposito = document.getElementById('deposito')
 checkDeposito.addEventListener('click', () => document.getElementById("acaoValor").disabled = false)
 
-function saque (){
-console.log('teste saque');
+function saque (conta, valor){
+    const found = contasClientes.find(e => e.conta == conta);
+    if(valor <= 0){
+        alert("Digite um valor maior que R$ 0,00  para efetuar o saque");
+    } else if (valor > found.saldo){
+        alert(`Saldo insuficiente para saque! Saldo atual: ${found.saldo}`);
+    } else{
+        found.saldo -= valor;
+        alert(`Saque efetuado com sucesso! Saldo atual: ${found.saldo}`)
+    }
 }
 
 function deposito (conta, valor){
     const found = contasClientes.find(e => e.conta == conta);
     if(valor <= 0){
-        alert("Digite um valor maior que R$ 0,00  para efetuar o depósito")
+        alert("Digite um valor maior que R$ 0,00  para efetuar o depósito");
     } else {
-        found.saldo += valor
-        alert(`Depósito efetuado com sucesso! Saldo atual: ${found.saldo}`)
+        found.saldo += valor;
+        alert(`Depósito efetuado com sucesso! Saldo atual: ${found.saldo}`);
     }
-
 }
 
 function saldo (conta){
@@ -75,7 +82,7 @@ function efetuarOperacao (ev){
         if(contasClientes[i].conta == acao.conta && contasClientes[i].senha == acao.senha){
             switch (acao.tipo){
                 case 'saque':
-                    saque();
+                    saque(acao.conta, acao.valor);
                     break;
                 case 'deposito':
                     deposito(acao.conta, acao.valor);
