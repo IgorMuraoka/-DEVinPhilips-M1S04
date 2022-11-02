@@ -44,13 +44,19 @@ function saque (){
 console.log('teste saque');
 }
 
-function deposito (){
-console.log('teste deposito');
+function deposito (conta, valor){
+    const found = contasClientes.find(e => e.conta == conta);
+    if(valor <= 0){
+        alert("Digite um valor maior que R$ 0,00  para efetuar o depósito")
+    } else {
+        found.saldo += valor
+        alert(`Depósito efetuado com sucesso! Saldo atual: ${found.saldo}`)
+    }
 
 }
 
-function saldo (c){
-    const found = contasClientes.find(e => e.conta == c);
+function saldo (conta){
+    const found = contasClientes.find(e => e.conta == conta);
     return alert(`Saldo atual: ${found.saldo}`)
 }
 
@@ -72,7 +78,7 @@ function efetuarOperacao (ev){
                     saque();
                     break;
                 case 'deposito':
-                    deposito();
+                    deposito(acao.conta, acao.valor);
                     break;
                 case 'saldo':
                     saldo(acao.conta);
