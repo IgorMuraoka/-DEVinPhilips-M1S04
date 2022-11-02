@@ -49,8 +49,9 @@ console.log('teste deposito');
 
 }
 
-function saldo (){
-console.log('teste saldo');
+function saldo (c){
+    const found = contasClientes.find(e => e.conta == c);
+    return alert(`Saldo atual: ${found.saldo}`)
 }
 
 
@@ -74,7 +75,7 @@ function efetuarOperacao (ev){
                     deposito();
                     break;
                 case 'saldo':
-                    saldo();
+                    saldo(acao.conta);
                     break;
                 default:
                     alert('Operação inválida!');
